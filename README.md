@@ -1,4 +1,3 @@
-# -BiChatBot
 const { Telegraf } = require('telegraf');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -46,12 +45,6 @@ bot.on('text', (ctx) => {
   bot.telegram.sendMessage(other, ctx.message.text);
 });
 
-bot.launch().then(() => console.log('Bot started...'));
-{
-  "name": "anon-chat-bot",
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "telegraf": "^4.0.0"
-  }
-}
+bot.launch().then(() => console.log('Bot started...')).catch((err) => {
+  console.error('Launch error:', err);
+});
